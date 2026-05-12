@@ -1,0 +1,13 @@
+services:
+  genie:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - chroma_data:/app/.chroma
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
